@@ -7,7 +7,7 @@ resource "hcloud_server" "xardas" {
   
   network {
     network_id = hcloud_network.hzcloud-network.id
-    ip         = "10.0.0.1"
+    ip         = "10.0.0.10"
 
   }
 
