@@ -12,7 +12,7 @@ resource "hcloud_server" "xardas" {
   }
 
   depends_on = [
-    hcloud_network_subnet.hzcloud-network-subnet
+    hcloud_network_subnet.hzcloud-network-subnet-1
   ]
 
 }
