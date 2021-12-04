@@ -34,7 +34,7 @@ resource "hcloud_firewall" "allow-ssh" {
 
 }
 
-
+# Hashicorp docs: https://www.consul.io/docs/install/ports
 resource "hcloud_firewall" "allow-consul" {
   name = "allow-consul"
   /*
