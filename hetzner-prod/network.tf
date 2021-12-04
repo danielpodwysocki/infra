@@ -11,3 +11,27 @@ resource "hcloud_network_subnet" "hzcloud-network-subnet-1" {
 }
 
 
+resource "hcloud_firewall" "allow-ssh" {
+  name = "allow-ssh"
+  rule {
+    direction = "in"
+    protocol  = "icmp"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "22"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+}
+
+
