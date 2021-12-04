@@ -35,3 +35,70 @@ resource "hcloud_firewall" "allow-ssh" {
 }
 
 
+resource "hcloud_firewall" "allow-consul" {
+  name = "allow-consul"
+  /*
+  ports list:
+  8600 TCP&UDP - Consul DNS
+  8500/TCP - http API
+  8301/TCP - LAN Serf
+  8302/TCP - WAN Serf (still needs to be there on LAN)
+  21000-21255/both - used for sidecars, will leave this blocked for now
+  */
+  rule {
+    direction = "in"
+    protocol  = "udp"
+    port      = "8600"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "8302"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "8301"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "8500"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+}
+
+
+resource "hcloud_firewall" "allow-consul-server" {
+  name = "allow-consul-server"
+  /*
+  ports list:
+  8300/TCP - RPC for the consul server
+  */
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "8300"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+
+}
+

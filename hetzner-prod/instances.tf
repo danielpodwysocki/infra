@@ -10,7 +10,11 @@ resource "hcloud_server" "xardas" {
     ip         = "10.0.0.10"
 
   }
-  firewall_ids = [hcloud_firewall.allow-ssh.id]
+  firewall_ids = [
+    hcloud_firewall.allow-ssh.id,
+    hcloud_firewall.allow-consul.id,
+    hcloud_firewall.allow-consul-server.id
+  ]
 
   depends_on = [
     hcloud_network_subnet.hzcloud-network-subnet-1
