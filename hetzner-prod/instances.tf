@@ -5,6 +5,11 @@ resource "hcloud_server" "xardas" {
   location    = "fsn1"
   ssh_keys    = ["daniel@Daniels-MBP"]
   
+  labels = {
+    consul_servers = "group"
+
+  }
+
   network {
     network_id = hcloud_network.hzcloud-network.id
     ip         = "10.0.0.10"
