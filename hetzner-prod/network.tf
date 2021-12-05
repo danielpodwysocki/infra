@@ -102,3 +102,31 @@ resource "hcloud_firewall" "allow-consul-server" {
 
 }
 
+resource "hcloud_firewall" "allow-nomad" {
+  name = "allow-consul-server"
+  /*
+  ports list:
+  4646/TCP - the API
+  4647/TCP - RPC
+  */
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "4646"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "4647"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+}
+
