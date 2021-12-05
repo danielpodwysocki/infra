@@ -103,7 +103,7 @@ resource "hcloud_firewall" "allow-consul-server" {
 }
 
 resource "hcloud_firewall" "allow-nomad" {
-  name = "allow-consul-server"
+  name = "allow-nomad"
   /*
   ports list:
   4646/TCP - the API
