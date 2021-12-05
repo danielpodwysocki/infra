@@ -6,7 +6,7 @@ resource "hcloud_server" "xardas" {
   ssh_keys    = ["daniel@Daniels-MBP"]
   
   labels = {
-    consul_servers = "group"
+    consul-servers = "group"
 
   }
 
