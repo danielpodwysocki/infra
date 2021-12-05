@@ -38,7 +38,7 @@ resource "hcloud_server" "docker01" {
 
   network {
     network_id = hcloud_network.hzcloud-network.id
-    ip         = "10.0.0.10"
+    ip         = "10.0.0.11"
 
   }
   firewall_ids = [
