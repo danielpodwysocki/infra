@@ -7,6 +7,8 @@ resource "hcloud_server" "xardas" {
   
   labels = {
     consul-servers = "group"
+    nomad-servers = "group"
+    vault-servers = "group"
 
   }
 
