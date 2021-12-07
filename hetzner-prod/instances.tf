@@ -6,9 +6,10 @@ resource "hcloud_server" "xardas" {
   ssh_keys    = ["daniel@Daniels-MBP"]
   
   labels = {
-    consul-servers = "group"
-    nomad-servers = "group"
-    vault-servers = "group"
+    // consul-servers = "group"
+    // nomad-servers = "group"
+    // vault-servers = "group"
+    swarm-managers = "group"
 
   }
 
@@ -19,9 +20,10 @@ resource "hcloud_server" "xardas" {
   }
   firewall_ids = [
     hcloud_firewall.allow-ssh.id,
-    hcloud_firewall.allow-consul.id,
-    hcloud_firewall.allow-consul-server.id,
-    hcloud_firewall.allow-nomad.id,
+    hcloud_firewall.allow-swarm.id,
+    // hcloud_firewall.allow-consul.id,
+    // hcloud_firewall.allow-consul-server.id,
+    // hcloud_firewall.allow-nomad.id,
   ]
 
   depends_on = [
@@ -46,8 +48,9 @@ resource "hcloud_server" "docker01" {
   }
   firewall_ids = [
     hcloud_firewall.allow-ssh.id,
-    hcloud_firewall.allow-consul.id,
-    hcloud_firewall.allow-nomad.id,
+    hcloud_firewall.allow-swarm.id,
+    // hcloud_firewall.allow-consul.id,
+    // hcloud_firewall.allow-nomad.id,
   ]
 
   depends_on = [

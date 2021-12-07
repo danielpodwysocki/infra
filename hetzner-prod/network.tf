@@ -130,3 +130,57 @@ resource "hcloud_firewall" "allow-nomad" {
 
 }
 
+resource "hcloud_firewall" "allow-swarm" {
+  name = "allow-nomad"
+  /*
+  ports list:
+  4646/TCP - the API
+  4647/TCP - RPC
+  */
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "2377"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "7949"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "7949"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "udp"
+    port      = "4789"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "esp"
+    source_ips = [
+      "10.0.0.0/24"
+    ]
+  }
+
+}
+
