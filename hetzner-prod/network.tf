@@ -131,11 +131,13 @@ resource "hcloud_firewall" "allow-nomad" {
 }
 
 resource "hcloud_firewall" "allow-swarm" {
-  name = "allow-nomad"
+  name = "allow-swarm"
   /*
   ports list:
-  4646/TCP - the API
-  4647/TCP - RPC
+  2377/TCP - the API
+  7949/both - discovery and gossip between nodes
+  4789/udp - overlay network
+  esp - required for encrypted mode
   */
 
   rule {
