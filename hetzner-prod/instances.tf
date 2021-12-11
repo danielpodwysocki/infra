@@ -1,11 +1,11 @@
 resource "hcloud_server" "xardas" {
-  name                = "xardas"
-  image               = "rocky-8"
-  server_type         = "cx11"
-  location            = "fsn1"
-  ssh_keys            = ["daniel@Daniels-MBP"]
-  delete_protection   = true
-  rebuild_proetection = true
+  name               = "xardas"
+  image              = "rocky-8"
+  server_type        = "cx11"
+  location           = "fsn1"
+  ssh_keys           = ["daniel@Daniels-MBP"]
+  delete_protection  = true
+  rebuild_protection = true
   
 
   network {
