@@ -29,6 +29,18 @@ resource "hcloud_server" "xardas" {
 
 }
 
+resource "hcloud_volume" "xardas_data" {
+  name              = "xardas_data"
+  linux_device      = "/dev/xardas_data"
+  size              = 10
+  server_id         = hcloud_server.node1.id
+  automount         = true
+  format            = "ext4"
+  delete_protection = false
+
+}
+
+
 
 resource "hcloud_server" "docker01" {
   name        = "docker01"
