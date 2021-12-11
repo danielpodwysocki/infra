@@ -1,4 +1,4 @@
-source "hcloud_server" "xardas" {
+resource "hcloud_server" "xardas" {
   name        = "xardas"
   image       = "rocky-8"
   server_type = "cx11"
