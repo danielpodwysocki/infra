@@ -9,6 +9,11 @@ source "hcloud_server" "xardas" {
   network {
     network_id = hcloud_network.hzcloud-network.id
     ip         = "10.0.0.10"
+  labels = {
+    control-node = "group"
+
+  }
+
 
   }
   firewall_ids = [
@@ -39,6 +44,11 @@ resource "hcloud_server" "node01" {
   server_type = "cx11"
   location    = "fsn1"
   ssh_keys    = ["daniel@Daniels-MBP"]
+
+  labels = {
+    k3s = "group"
+
+  }
   
 
   network {
