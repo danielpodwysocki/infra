@@ -1,9 +1,11 @@
 resource "hcloud_server" "xardas" {
-  name        = "xardas"
-  image       = "rocky-8"
-  server_type = "cx11"
-  location    = "fsn1"
-  ssh_keys    = ["daniel@Daniels-MBP"]
+  name                = "xardas"
+  image               = "rocky-8"
+  server_type         = "cx11"
+  location            = "fsn1"
+  ssh_keys            = ["daniel@Daniels-MBP"]
+  delete_protection   = true
+  rebuild_proetection = true
   
 
   network {
@@ -31,7 +33,7 @@ resource "hcloud_volume" "xardas_data" {
   server_id         = hcloud_server.xardas.id
   automount         = true
   format            = "ext4"
-  delete_protection = false
+  delete_protection = true
 
 }
 
