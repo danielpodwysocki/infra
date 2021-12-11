@@ -1,17 +1,10 @@
-resource "hcloud_server" "xardas" {
+source "hcloud_server" "xardas" {
   name        = "xardas"
   image       = "rocky-8"
   server_type = "cx11"
   location    = "fsn1"
   ssh_keys    = ["daniel@Daniels-MBP"]
   
-  labels = {
-    // consul-servers = "group"
-    // nomad-servers = "group"
-    // vault-servers = "group"
-    swarm-managers = "group"
-
-  }
 
   network {
     network_id = hcloud_network.hzcloud-network.id
@@ -20,7 +13,6 @@ resource "hcloud_server" "xardas" {
   }
   firewall_ids = [
     hcloud_firewall.allow-ssh.id,
-    hcloud_firewall.allow-swarm.id,
   ]
 
   depends_on = [
@@ -41,8 +33,8 @@ resource "hcloud_volume" "xardas_data" {
 
 
 
-resource "hcloud_server" "docker01" {
-  name        = "docker01"
+resource "hcloud_server" "node01" {
+  name        = "node01"
   image       = "rocky-8"
   server_type = "cx11"
   location    = "fsn1"
@@ -56,7 +48,6 @@ resource "hcloud_server" "docker01" {
   }
   firewall_ids = [
     hcloud_firewall.allow-ssh.id,
-    hcloud_firewall.allow-swarm.id,
   ]
 
   depends_on = [
