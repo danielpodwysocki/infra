@@ -12,17 +12,15 @@ resource "hcloud_server" "xardas" {
   }
 
   labels = {
-    control-node = "group"
+    control-node = "group",
   }
 
-
-  }
   firewall_ids = [
     hcloud_firewall.allow-ssh.id,
   ]
 
   depends_on = [
-    hcloud_network_subnet.hzcloud-network-subnet-1
+    hcloud_network_subnet.hzcloud-network-subnet-1,
   ]
 
 }
