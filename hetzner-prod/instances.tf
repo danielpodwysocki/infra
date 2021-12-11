@@ -9,9 +9,10 @@ source "hcloud_server" "xardas" {
   network {
     network_id = hcloud_network.hzcloud-network.id
     ip         = "10.0.0.10"
+  }
+
   labels = {
     control-node = "group"
-
   }
 
 
@@ -47,7 +48,6 @@ resource "hcloud_server" "node01" {
 
   labels = {
     k3s = "group"
-
   }
   
 
