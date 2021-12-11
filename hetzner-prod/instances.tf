@@ -31,7 +31,6 @@ resource "hcloud_server" "xardas" {
 
 resource "hcloud_volume" "xardas_data" {
   name              = "xardas_data"
-  linux_device      = "/dev/xardas_data"
   size              = 10
   server_id         = hcloud_server.xardas.id
   automount         = true
