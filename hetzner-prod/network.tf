@@ -34,3 +34,29 @@ resource "hcloud_firewall" "allow-ssh" {
 
 }
 
+
+resource "hcloud_firewall" "allow-web-all" {
+  name = "allow-web-all"
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "80"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "443"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+}
+
