@@ -60,3 +60,35 @@ resource "hcloud_firewall" "allow-web-all" {
 
 }
 
+resource "hcloud_firewall" "allow-kube-api-all" {
+  name = "allow-web-all"
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "6443"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+}
+
+
+resource "hcloud_firewall" "allow-kube-api-private" {
+  name = "allow-web-all"
+
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "6443"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
+}
+
+
