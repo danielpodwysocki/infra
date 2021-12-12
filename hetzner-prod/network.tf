@@ -61,7 +61,7 @@ resource "hcloud_firewall" "allow-web-all" {
 }
 
 resource "hcloud_firewall" "allow-kube-api-all" {
-  name = "allow-web-all"
+  name = "allow-kube-api-all"
 
   rule {
     direction = "in"
@@ -77,7 +77,7 @@ resource "hcloud_firewall" "allow-kube-api-all" {
 
 
 resource "hcloud_firewall" "allow-kube-api-private" {
-  name = "allow-web-all"
+  name = "allow-kube-api-private"
 
   rule {
     direction = "in"
