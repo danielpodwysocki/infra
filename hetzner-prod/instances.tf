@@ -14,7 +14,7 @@ resource "hcloud_server" "xardas" {
   }
 
   labels = {
-    control-node = "group",
+    k3s_server = "group",
   }
 
   firewall_ids = [
@@ -32,8 +32,6 @@ resource "hcloud_volume" "xardas_data" {
   name              = "xardas_data"
   size              = 10
   server_id         = hcloud_server.xardas.id
-  automount         = true
-  format            = "ext4"
   delete_protection = true
 
 }
