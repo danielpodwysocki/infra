@@ -66,3 +66,10 @@ resource "hcloud_server" "node01" {
 
 }
 
+resource "hcloud_volume" "node01_data" {
+  name              = "node01_data"
+  size              = 10
+  server_id         = hcloud_server.node01.id
+  delete_protection = true
+
+}
