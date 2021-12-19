@@ -4,8 +4,6 @@ resource "hcloud_server" "xardas" {
   server_type        = "cpx21"
   location           = "fsn1"
   ssh_keys           = ["daniel@Daniels-MBP"]
-  delete_protection  = true
-  rebuild_protection = true
   
 
   network {
@@ -33,7 +31,6 @@ resource "hcloud_volume" "xardas_data" {
   name              = "xardas_data"
   size              = 10
   server_id         = hcloud_server.xardas.id
-  delete_protection = true
 
 }
 
@@ -70,6 +67,5 @@ resource "hcloud_volume" "node01_data" {
   name              = "node01_data"
   size              = 10
   server_id         = hcloud_server.node01.id
-  delete_protection = true
 
 }
