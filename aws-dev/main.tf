@@ -7,10 +7,15 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "eu-central-1"
-}
 
 variable "ssh_key_name" {
   default = "aws-daniel-macbook"
+}
+
+variable "region" {
+  default = "eu-central-1"
+}
+
+provider "aws" {
+  region = var.region
 }

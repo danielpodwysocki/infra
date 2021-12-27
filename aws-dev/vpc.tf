@@ -1,6 +1,6 @@
 resource "aws_vpc" "dev" {
-  cidr_block = "10.0.0.0/16"
-  enable_dns_support = true
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
   enable_dns_hostnames = true
 
   tags = {
@@ -43,7 +43,7 @@ resource "aws_main_route_table_association" "default" {
 resource "aws_subnet" "dev-public-a" {
   vpc_id                  = aws_vpc.dev.id
   cidr_block              = "10.0.0.0/24"
-  availability_zone       = "eu-central-1a"
+  availability_zone       = "${var.region}a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -55,7 +55,7 @@ resource "aws_subnet" "dev-public-a" {
 resource "aws_subnet" "dev-public-b" {
   vpc_id                  = aws_vpc.dev.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "eu-central-1b"
+  availability_zone       = "${var.region}b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -67,7 +67,7 @@ resource "aws_subnet" "dev-public-b" {
 resource "aws_subnet" "dev-public-c" {
   vpc_id                  = aws_vpc.dev.id
   cidr_block              = "10.0.2.0/24"
-  availability_zone       = "eu-central-1c"
+  availability_zone       = "${var.region}c"
   map_public_ip_on_launch = true
 
   tags = {
@@ -79,7 +79,7 @@ resource "aws_subnet" "dev-public-c" {
 resource "aws_subnet" "dev-private-a" {
   vpc_id            = aws_vpc.dev.id
   cidr_block        = "10.0.128.0/24"
-  availability_zone = "eu-central-1a"
+  availability_zone = "${var.region}a"
 
   tags = {
     Name = "dev-private-a"
@@ -90,7 +90,7 @@ resource "aws_subnet" "dev-private-a" {
 resource "aws_subnet" "dev-private-b" {
   vpc_id            = aws_vpc.dev.id
   cidr_block        = "10.0.129.0/24"
-  availability_zone = "eu-central-1b"
+  availability_zone = "${var.region}b"
 
   tags = {
     Name = "dev-private-b"
@@ -101,7 +101,7 @@ resource "aws_subnet" "dev-private-b" {
 resource "aws_subnet" "dev-private-c" {
   vpc_id            = aws_vpc.dev.id
   cidr_block        = "10.0.130.0/24"
-  availability_zone = "eu-central-1c"
+  availability_zone = "${var.region}c"
 
   tags = {
     Name = "dev-private-c"
