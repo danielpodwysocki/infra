@@ -1,4 +1,4 @@
-resource "aws_instance" "xardas" {
+resource "aws_instance" "vault1" {
   ami           = "ami-05d34d340fb1d89e5"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.dev-public-c.id
@@ -8,7 +8,7 @@ resource "aws_instance" "xardas" {
   key_name = var.ssh_key_name
 
   tags = {
-    Name = "xardas"
+    Name = "vault1"
     Env  = "dev"
   }
 }
