@@ -5,6 +5,7 @@ resource "aws_instance" "xardas" {
   vpc_security_group_ids = [
     aws_security_group.allow_ssh.id,
   ]
+  key_name = var.ssh_key_name
 
   tags = {
     Name = "xardas"

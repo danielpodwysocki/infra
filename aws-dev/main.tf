@@ -11,3 +11,6 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+variable "ssh_key_name" {
+  default = "aws-daniel-macbook"
+}
