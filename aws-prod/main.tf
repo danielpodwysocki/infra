@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "terraform-20220101095813227800000001"
-    key    = "aws-dev"
+    key    = "aws-prod"
     region = "eu-central-1"
   }
 
