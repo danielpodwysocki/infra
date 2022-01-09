@@ -69,33 +69,3 @@ resource "hcloud_volume" "node01_data" {
   server_id         = hcloud_server.node01.id
 
 }
-
-
-resource "hcloud_server" "node02" {
-  name        = "node02"
-  image       = "rocky-8"
-  server_type = "cx11"
-  location    = "fsn1"
-  ssh_keys    = ["daniel@Daniels-MBP"]
-
-  labels = {
-    k3s = "group"
-  }
-  
-
-  
-
-  network {
-    network_id = hcloud_network.hzcloud-network.id
-    ip         = "10.0.0.12"
-
-  }
-  firewall_ids = [
-    hcloud_firewall.allow-ssh.id,
-  ]
-
-  depends_on = [
-    hcloud_network_subnet.hzcloud-network-subnet-1
-  ]
-
-}
