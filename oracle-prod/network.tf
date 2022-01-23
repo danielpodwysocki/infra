@@ -30,9 +30,9 @@ resource "oci_core_subnet" "production-a" {
 
 resource "oci_core_subnet" "production-b" {
   availability_domain = var.availability-domain-b
-  vcn_id         = oci_core_vcn.production_vcn.id
-  compartment_id = oci_identity_compartment.production.id
-  cidr_block     = var.cidr_block-b
+  vcn_id              = oci_core_vcn.production_vcn.id
+  compartment_id      = oci_identity_compartment.production.id
+  cidr_block          = var.cidr_block-b
 
   display_name = "production-b"
 }
