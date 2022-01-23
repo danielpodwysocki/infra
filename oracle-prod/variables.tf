@@ -14,12 +14,12 @@ variable "availability-domain-b" {
   default = "neSS:EU-FRANKFURT-1-AD-2"
 }
 
-variable "cidr_block-a"{
+variable "cidr_block-a" {
   default = "10.0.1.0/26"
 }
 
-variable "cidr_block-b"{
- default =  "10.0.1.64/26"
+variable "cidr_block-b" {
+  default = "10.0.1.64/26"
 }
 
 
