@@ -1,7 +1,7 @@
 resource "hcloud_server" "xardas" {
   name        = "xardas"
   image       = "rocky-8"
-  server_type = "cx11"
+  server_type = "cx31"
   location    = "fsn1"
   ssh_keys    = ["daniel@Daniels-MBP"]
 
@@ -9,10 +9,6 @@ resource "hcloud_server" "xardas" {
   network {
     network_id = hcloud_network.hzcloud-network.id
     ip         = "10.0.0.10"
-  }
-
-  labels = {
-    xardas = "group",
   }
 
   firewall_ids = [
@@ -32,5 +28,4 @@ resource "hcloud_volume" "xardas_data" {
   server_id = hcloud_server.xardas.id
 
 }
-
 
