@@ -5,6 +5,13 @@ terraform {
       version = "1.33.2"
     }
   }
+  cloud {
+    organization = "dapo_tech"
+
+    workspaces {
+      name = "hetzner-dev"
+    }
+  }
 }
 
 variable "hcloud_token" {
