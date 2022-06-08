@@ -33,6 +33,16 @@ To allow it to be loaded, you need to trust the directory. After you create you 
 direnv allow .
 ```
 
+You can trust a directory automatically by adding it to your logon script, for example:
+```
+direnv allow ~/workspace/infra
+```
+
+Example entry in your .envrc file:
+```
+export TF_VAR_hcloud_token=<secret value>
+```
+
 It's recommended to encrypt this file at rest when you're not working on the repo.
 
 ## aws-dev
