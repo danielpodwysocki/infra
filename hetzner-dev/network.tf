@@ -35,3 +35,16 @@ resource "hcloud_firewall" "allow-ssh" {
 }
 
 
+resource "hcloud_firewall" "allow-consul-server" {
+  name = "allow-consul-server"
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "8300"
+    source_ips = [
+      "172.21.0.0/16"
+    ]
+  }
+
+}
+
