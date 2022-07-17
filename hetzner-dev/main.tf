@@ -17,7 +17,7 @@ terraform {
 # when set to false, destroy all resourcers except storage vols
 variable "deploy" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "hcloud_token" {
