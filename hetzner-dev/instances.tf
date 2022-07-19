@@ -15,6 +15,8 @@ resource "hcloud_server" "xardas" {
   firewall_ids = [
     hcloud_firewall.allow-ssh[0].id,
     hcloud_firewall.allow-consul-server[0].id,
+    hcloud_firewall.allow-http[0].id,
+    hcloud_firewall.allow-https[0].id,
   ]
 
   depends_on = [
